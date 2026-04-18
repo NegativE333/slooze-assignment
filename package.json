@@ -2,10 +2,14 @@
   "dependencies": {
     "@nestjs/apollo": "^13.2.5",
     "@nestjs/graphql": "^13.2.5",
+    "@prisma/adapter-pg": "^7.7.0",
+    "@prisma/client": "^7.7.0",
     "apollo-server-express": "^3.13.0",
-    "graphql": "^16.13.2"
+    "graphql": "^16.13.2",
+    "pg": "^8.20.0"
   },
   "devDependencies": {
+    "@types/pg": "^8.20.0",
     "prisma": "^7.7.0"
   }
 }

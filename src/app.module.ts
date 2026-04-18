@@ -18,8 +18,9 @@ import { HealthModule } from './health/health.module';
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
+      csrfPrevention: false,
       // We pass the request to the context so our guards can read the headers
-      context: ({ req }) => ({ req }), 
+      context: ({ req }) => ({ req }),
     }),
     RestaurantsModule,
     OrdersModule,

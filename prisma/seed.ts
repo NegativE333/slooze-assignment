@@ -25,6 +25,42 @@ async function main() {
   await prisma.menuItem.deleteMany();
   await prisma.restaurant.deleteMany();
 
+  await prisma.user.upsert({
+    where: { id: 'test-member' },
+    update: {},
+    create: {
+      id: 'test-member',
+      email: 'member@mock.com',
+      password: 'mock-password-123',
+      role: 'MEMBER',
+      country: 'INDIA',
+    },
+  });
+
+  await prisma.user.upsert({
+    where: { id: 'test-manager' },
+    update: {},
+    create: {
+      id: 'test-manager',
+      email: 'manager@mock.com',
+      password: 'mock-password-123',
+      role: 'MANAGER',
+      country: 'INDIA',
+    },
+  });
+
+  await prisma.user.upsert({
+    where: { id: 'test-admin' },
+    update: {},
+    create: {
+      id: 'test-admin',
+      email: 'admin@mock.com',
+      password: 'mock-password-123',
+      role: 'ADMIN',
+      country: 'INDIA',
+    },
+  });
+
   const indiaRest = await prisma.restaurant.create({
     data: {
       name: 'Pune Spice',

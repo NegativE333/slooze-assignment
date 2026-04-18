@@ -29,6 +29,7 @@ npm run start:dev
 ```
 
 - GraphQL HTTP endpoint: `http://localhost:3000/graphql` (Nest default for Apollo)
+- Health check (no auth): `GET http://localhost:3000/health` → `{ "status": "ok" }`
 - Generated SDL (for reference): `src/schema.gql` after the app runs or builds
 
 ## Auth (required for every operation below)

@@ -33,4 +33,24 @@ export class OrdersService {
       },
     });
   }
+
+  async updateOrderStatus(user: AuthUser, orderId: string, status: 'PAID' | 'CANCELLED') {
+    const order = await this.prisma.order.findUnique({
+      where: { id: orderId },
+      include: { user: true }
+    });
+
+    if (!order) {
+      throw new NotFoundException('Order not found');
+    }
+
+    if (order.user.country !== user.country) {
+      throw new ForbiddenException('You cannot modify orders outside your assigned country.');
+    }
+
+    return this.prisma.order.update({
+      where: { id: orderId },
+      data: { status },
+    });
+  }
 }

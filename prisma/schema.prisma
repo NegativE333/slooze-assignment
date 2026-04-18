@@ -71,3 +71,11 @@ enum OrderStatus {
   PAID
   CANCELLED
 }
+
+model PaymentMethod {
+  id        String   @id @default(uuid())
+  type      String
+  lastFour  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

@@ -20,4 +20,24 @@ export class OrdersResolver {
   ) {
     return this.ordersService.createOrder(user, input);
   }
+
+  @Mutation(() => Order)
+  @UseGuards(GqlAuthGuard)
+  @Roles('ADMIN', 'MANAGER')
+  checkoutOrder(
+    @CurrentUser() user: AuthUser,
+    @Args('orderId') orderId: string,
+  ) {
+    return this.ordersService.updateOrderStatus(user, orderId, 'PAID');
+  }
+
+  @Mutation(() => Order)
+  @UseGuards(GqlAuthGuard)
+  @Roles('ADMIN', 'MANAGER')
+  cancelOrder(
+    @CurrentUser() user: AuthUser,
+    @Args('orderId') orderId: string,
+  ) {
+    return this.ordersService.updateOrderStatus(user, orderId, 'CANCELLED');
+  }
 }

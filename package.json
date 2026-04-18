@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@nestjs/apollo": "^13.2.5",
+    "@nestjs/graphql": "^13.2.5",
+    "apollo-server-express": "^3.13.0",
+    "graphql": "^16.13.2"
+  },
+  "devDependencies": {
+    "prisma": "^7.7.0"
+  }
+}

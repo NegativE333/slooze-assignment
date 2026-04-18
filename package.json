@@ -8,6 +8,9 @@
     "graphql": "^16.13.2",
     "pg": "^8.20.0"
   },
+  "prisma": {
+    "seed": "npx ts-node prisma/seed.ts"
+  },
   "devDependencies": {
     "@types/pg": "^8.20.0",
     "prisma": "^7.7.0"

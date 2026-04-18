@@ -5,6 +5,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { join } from 'path';
 import { RestaurantsModule } from './restaurants/restaurants.module';
+import { OrdersModule } from './orders/orders.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { RestaurantsModule } from './restaurants/restaurants.module';
       context: ({ req }) => ({ req }), 
     }),
     RestaurantsModule,
+    OrdersModule,
   ],
 })
 export class AppModule {}

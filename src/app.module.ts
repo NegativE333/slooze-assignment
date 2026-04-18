@@ -4,6 +4,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { join } from 'path';
+import { RestaurantsModule } from './restaurants/restaurants.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { join } from 'path';
       // We pass the request to the context so our guards can read the headers
       context: ({ req }) => ({ req }), 
     }),
+    RestaurantsModule,
   ],
 })
 export class AppModule {}

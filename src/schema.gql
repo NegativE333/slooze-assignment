@@ -1,0 +1,55 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateOrderInput {
+  items: [OrderItemInput!]!
+  restaurantId: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type MenuItem {
+  id: String!
+  name: String!
+  price: Float!
+  restaurantId: String!
+}
+
+type Mutation {
+  addPaymentMethod(lastFour: String, type: String!): PaymentMethodType!
+  cancelOrder(orderId: String!): Order!
+  checkoutOrder(orderId: String!): Order!
+  createOrder(input: CreateOrderInput!): Order!
+}
+
+type Order {
+  createdAt: DateTime!
+  id: String!
+  status: String!
+  userId: String!
+}
+
+input OrderItemInput {
+  menuItemId: String!
+  quantity: Int! = 1
+}
+
+type PaymentMethodType {
+  id: String!
+  type: String!
+}
+
+type Query {
+  restaurants: [Restaurant!]!
+}
+
+type Restaurant {
+  country: String!
+  id: String!
+  menuItems: [MenuItem]
+  name: String!
+}
